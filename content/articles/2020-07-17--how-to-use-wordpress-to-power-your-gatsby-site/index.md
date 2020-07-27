@@ -44,10 +44,9 @@ is not free--And it has the flexibility to be a reliable production deployment.
 - **AWS Lightsail for Wordpress**
   - An easy to use Wordpress as a service. Use whatever your favorite Wordpress
     hosting service is!
-- **Netlify for hosting**
+- **Netlify for hosting and DNS**
   - Netlify is the leader in JAMStack hosting. Free!
-- **Cloudflare for DNS and HTTPS**
-  - Cloudflare is a great service for DNS. Free!
+  - They also offer killer DNS management
 
 ## Setup Wordpress on AWS Lightsail
 
@@ -150,20 +149,14 @@ I recommend using the following stack of services for DNS/Domain Name-related
 things:
 
 - **Namecheap** to buy your domain name
-- **Cloudflare** for domain record configuration
-- **Netlify** for site hosting
+- **Netlify** for site hosting and DNS
 
-We are going to achieve the DNS setup recommended by Netlify, only using
-Cloudflare's Nameservers instead of Netlify's. There is nothing wrong with using
-Netlify's, but Cloudflare is free as well and is extremely powerful and
-flexible.
-
-Essentially we want to use `www.yourdomain.com` as our **primary** domain and
-`yourdomain.com` seconday. You can think of `www.yourdomain` as where your
-website lives, and `yourdomain.com` as the base domain from which you can setup
-other types of DNS records against (mail, etc). The reason for this can be
-somewhat technical, but Jen Kagan from Netlify does a great job summarizing this
-concisely:
+Essentially, what we want to achieve is to use `www.yourdomain.com` as our
+**primary** domain and `yourdomain.com` seconday. You can think of
+`www.yourdomain` as where your website lives, and `yourdomain.com` as the base
+domain from which you can setup other types of DNS records against (mail, etc).
+The reason for this can be somewhat technical, but Jen Kagan from Netlify does a
+great job summarizing this concisely:
 
 > You might think that you could simply configure a CNAME record for the apex
 > domain—point example.com to <automatically-generated-name>.netlify.app—but you
@@ -182,9 +175,7 @@ Steps you will need to do:
 
 1. Purchase your Domain from [Namecheap](https://www.namecheap.com/)
 
-2. Sign up with [Cloudflare](https://www.cloudflare.com/)
-
-3. Sign up with [Netlify](https://link)
+2. Sign up with [Netlify](https://link)
 
 With your accounts setup, you are ready to move on.
 
@@ -248,27 +239,27 @@ where you can save your Netlify Build Hook.
 
 Update your Netlify environment with the location of your Wordpress app. Lots of starters use the key `WPGRAPHQL_URL` to track their source endpoint.
 
-### Cloudflare
+#### Netlify DNS
 
-Log in to [Cloudflare](https://www.cloudflare.com/), and navigate to the DNS tab
-on your dashboard.
+Log in to [Netlify](https://www.netlify.com/).
 
-We need to divert traffic to their loadbalancers when people navigate to our
-domain. We can do this by adding two DNS records in Cloudflare:
+Navigate to your site from your **Sites** page, and then into **Settings**, and
+then into **Domain Management**. Click the `Add custom domain` button, and enter
+your domain name. If my domain was `example.com` I would input `example.com`,
+select verify, confirm that I own this domain by selecting `Yes, add domain`.
 
-- **CNAME record**: for "www" to our Netlify URL
-- [**A record**: for our "base" domain to Netlify's load balancer](https://docs.netlify.com/domains-https/custom-domains/configure-external-dns/#configure-an-apex-domain)
+![Add domain](./add-domain.png)
 
-Netlify's load balancer is public, and at the time of writing this. It is
-`104.198.14.52`
+Now, you should have 3 entries under your Domain Management.
 
-While you are here, you should also subdomain your Wordpress IP. My Cloudflare
-looks like this:
+  - The Netlify default subdomain
+  - Your primary domain
+  - and a "www" entry that redirects automatically to your primary domain
 
-![Cloudflare](./cloudflare-dns.png)
+I would consider making the "www" domain our primary domain based off of a
+[great blog post by the Netlify team](https://www.netlify.com/blog/2017/02/28/to-www-or-not-www/)
 
-This was we have our wordpress site on `wp.yourdomain.com`, and our website is
-on `www.yourdomain.com`, aswell as just `yourdomain.com` (no "www")
+Netlify will begin provisioned
 
 ## Putting it all together
 
