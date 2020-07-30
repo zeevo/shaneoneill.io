@@ -4,12 +4,16 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import PageTemplateDetails from '../components/PageTemplateDetails';
 
+import banner from '../assets/images/banner.jpeg';
+
 class PageTemplate extends React.Component {
   render() {
-    const { title, subtitle } = this.props.data.site.siteMetadata;
+    const { title, subtitle, url } = this.props.data.site.siteMetadata;
     const page = this.props.data.markdownRemark;
     const { title: pageTitle, description: pageDescription } = page.frontmatter;
     const description = pageDescription !== null ? pageDescription : subtitle;
+
+    console.log(page);
 
     return (
       <Layout>
@@ -17,6 +21,17 @@ class PageTemplate extends React.Component {
           <Helmet>
             <title>{`${pageTitle} - ${title}`}</title>
             <meta name="description" content={description} />
+
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:site" content="@zeevosec" />
+            <meta name="twitter:creator" content="@zeevosec" />
+            <meta name="twitter:title" content={pageTitle} />
+
+            <meta name="og:description" content={description} />
+            <meta name="og:image" content={url + banner} />
+            <meta name="og:title" content={pageTitle} />
+            <meta name="og:url" content={`${url}/${pageTitle.toLowerCase()}`} />
+            <meta name="og:type" content="website" />
           </Helmet>
           <PageTemplateDetails {...this.props} />
         </div>
@@ -34,6 +49,7 @@ export const pageQuery = graphql`
         title
         subtitle
         copyright
+        url
         menu {
           label
           path

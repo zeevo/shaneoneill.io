@@ -5,15 +5,31 @@ import Layout from '../components/Layout';
 import Sidebar from '../components/Sidebar';
 import CategoryTemplateDetails from '../components/CategoryTemplateDetails';
 
+import banner from '../assets/images/banner.jpeg';
+
 class CategoryTemplate extends React.Component {
   render() {
-    const { title } = this.props.data.site.siteMetadata;
+    const { title, url } = this.props.data.site.siteMetadata;
     const { category } = this.props.pageContext;
 
     return (
       <Layout>
         <div>
-          <Helmet title={`${category} - ${title}`} />
+          <Helmet>
+            <title>{`${category} - ${title}`}</title>
+            <meta name="description" content={category} />
+
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:site" content="@zeevosec" />
+            <meta name="twitter:creator" content="@zeevosec" />
+            <meta name="twitter:title" content={category} />
+
+            <meta name="og:description" content={category} />
+            <meta name="og:image" content={url + banner} />
+            <meta name="og:title" content={`${category} - ${title}`} />
+            <meta name="og:url" content={`${url}/${category.toLowerCase()}`} />
+            <meta name="og:type" content="website" />
+          </Helmet>
           <Sidebar {...this.props} />
           <CategoryTemplateDetails {...this.props} />
         </div>
@@ -30,6 +46,7 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         subtitle
+        url
         copyright
         menu {
           label

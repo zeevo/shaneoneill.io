@@ -11,7 +11,10 @@ class Layout extends React.Component {
 
     return (
       <div className="layout">
-        <Helmet defaultTitle="zeevo | shaneoneill.io" />
+        <Helmet defaultTitle="zeevo | shaneoneill.io">
+          <meta charSet="utf-8" />
+          <html lang="en" />
+        </Helmet>
         {children}
       </div>
     );

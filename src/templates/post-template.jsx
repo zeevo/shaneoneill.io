@@ -9,6 +9,7 @@ class PostTemplate extends React.Component {
   render() {
     const { title, subtitle, url } = this.props.data.site.siteMetadata;
     const post = this.props.data.markdownRemark;
+
     const { title: postTitle, description: postDescription } = post.frontmatter;
     const description = postDescription !== null ? postDescription : subtitle;
 
@@ -22,8 +23,12 @@ class PostTemplate extends React.Component {
             <meta name="twitter:site" content="@zeevosec" />
             <meta name="twitter:creator" content="@zeevosec" />
             <meta name="twitter:title" content={postTitle} />
-            <meta name="twitter:description" content={description} />
-            <meta name="twitter:image" content={url + banner} />
+
+            <meta name="og:description" content={description} />
+            <meta name="og:image" content={url + banner} />
+            <meta name="og:title" content={postTitle} />
+            <meta name="og:url" content={url + post.fields.slug} />
+            <meta name="og:type" content="website" />
           </Helmet>
           <PostTemplateDetails {...this.props} />
         </div>
