@@ -1,19 +1,14 @@
 language: node_js
-
 node_js:
   - '10'
-
-branches:
-  only:
-    - master
-
+install:
+  - npm install -g codecov
+script:
+  - yarn install
+  - yarn lint
+  - yarn test:coverage --runInBand --no-cache
+  - yarn test --runInBand --no-cache
+  - codecov
 cache:
   directories:
     - node_modules
-
-before_script:
-  - 'npm i -g gatsby-cli'
-  - 'yarn'
-
-script:
-  - yarn deploy

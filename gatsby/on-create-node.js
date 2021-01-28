@@ -1,29 +1,33 @@
 const _ = require('lodash');
-const path = require('path');
+const { createFilePath } = require('gatsby-source-filesystem');
 
-const onCreateNode = ({ node, actions }) => {
+const onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
-  if (node.internal.type === 'File') {
-    const parsedFilePath = path.parse(node.absolutePath);
-    const slug = `/${parsedFilePath.dir.split('---')[1]}/`;
-    createNodeField({ node, name: 'slug', value: slug });
-  } else if (node.internal.type === 'MarkdownRemark' && typeof node.slug === 'undefined') {
-    const slug = node.frontmatter.path;
-
-    createNodeField({
-      node,
-      name: 'slug',
-      value: slug,
-    });
+  if (node.internal.type === 'MarkdownRemark') {
+    if (typeof node.frontmatter.slug !== 'undefined') {
+      const dirname = getNode(node.parent).relativeDirectory;
+      createNodeField({
+        node,
+        name: 'slug',
+        value: `/${dirname}/${node.frontmatter.slug}`,
+      });
+    } else {
+      const value = createFilePath({ node, getNode });
+      createNodeField({
+        node,
+        name: 'slug',
+        value,
+      });
+    }
 
     if (node.frontmatter.tags) {
-      const tagSlugs = node.frontmatter.tags.map((tag) => `/tags/${_.kebabCase(tag)}/`);
+      const tagSlugs = node.frontmatter.tags.map((tag) => `/tag/${_.kebabCase(tag)}/`);
       createNodeField({ node, name: 'tagSlugs', value: tagSlugs });
     }
 
-    if (typeof node.frontmatter.category !== 'undefined') {
-      const categorySlug = `/categories/${_.kebabCase(node.frontmatter.category)}/`;
+    if (node.frontmatter.category) {
+      const categorySlug = `/category/${_.kebabCase(node.frontmatter.category)}/`;
       createNodeField({ node, name: 'categorySlug', value: categorySlug });
     }
   }

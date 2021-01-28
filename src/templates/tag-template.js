@@ -1,60 +1,57 @@
 import React from 'react';
-import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
-import TagTemplateDetails from '../components/TagTemplateDetails';
-import banner from '../assets/images/banner.jpeg';
+import Sidebar from '../components/Sidebar';
+import Feed from '../components/Feed';
+import Page from '../components/Page';
+import Pagination from '../components/Pagination';
+import { useSiteMetadata } from '../hooks';
 
-const TagTemplate = (props) => {
-  const { title, url } = props.data.site.siteMetadata;
-  const { tag } = props.pageContext;
+const TagTemplate = ({ data, pageContext }) => {
+  const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata();
+
+  const { tag, currentPage, prevPagePath, nextPagePath, hasPrevPage, hasNextPage } = pageContext;
+
+  const { edges } = data.allMarkdownRemark;
+  const pageTitle =
+    currentPage > 0
+      ? `All Posts tagged as "${tag}" - Page ${currentPage} - ${siteTitle}`
+      : `All Posts tagged as "${tag}" - ${siteTitle}`;
 
   return (
-    <Layout>
-      <Helmet>
-        <title>{`${tag} - ${title}`}</title>
-        <meta name="description" content={`All posts tagged as ${tag}`} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@zeevosec" />
-        <meta name="twitter:creator" content="@zeevosec" />
-        <meta name="twitter:title" content={`${tag} - ${title}`} />
-        <meta name="twitter:description" content={`All posts tagged as ${tag}`} />
-        <meta name="twitter:image" content={url + banner} />
-      </Helmet>
-      <TagTemplateDetails {...props} />
+    <Layout title={pageTitle} description={siteSubtitle}>
+      <Sidebar />
+      <Page title={tag}>
+        <Feed edges={edges} />
+        <Pagination
+          prevPagePath={prevPagePath}
+          nextPagePath={nextPagePath}
+          hasPrevPage={hasPrevPage}
+          hasNextPage={hasNextPage}
+        />
+      </Page>
     </Layout>
   );
 };
 
-export default TagTemplate;
-
-export const pageQuery = graphql`
-  query TagPage($tag: String) {
+export const query = graphql`
+  query TagPage($tag: String, $postsLimit: Int!, $postsOffset: Int!) {
     site {
       siteMetadata {
-        url
         title
         subtitle
-        copyright
-        menu {
-          label
-          path
-        }
-        author {
-          name
-          twitter
-          github
-        }
       }
     }
     allMarkdownRemark(
-      limit: 1000
-      filter: { frontmatter: { tags: { in: [$tag] }, layout: { eq: "post" }, draft: { ne: true } } }
+      limit: $postsLimit
+      skip: $postsOffset
+      filter: {
+        frontmatter: { tags: { in: [$tag] }, template: { eq: "post" }, draft: { ne: true } }
+      }
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {
       edges {
         node {
-          timeToRead
           fields {
             slug
             categorySlug
@@ -70,3 +67,5 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+export default TagTemplate;
