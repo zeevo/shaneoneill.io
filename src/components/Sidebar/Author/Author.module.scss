@@ -32,17 +32,17 @@
     }
 
     &-link {
-      color: $color-base;
+      // color: $color-base;
 
       &:hover,
       &:focus {
-        color: $color-base;
+        // color: $color-base;
       }
     }
   }
 
   &__subtitle {
-    color: $color-gray;
+    // color: $color-gray;
     @include line-height(1);
     @include margin-bottom(1);
     @include margin-top(0);

@@ -21,8 +21,8 @@
     padding: 0 24px;
     line-height: $button-height;
     text-align: center;
-    color: $color-base;
-    border: 1px solid $color-gray-border;
+    // color: $color-base;
+    // border: 1px solid $color-gray-border;
     border-radius: $button-border-radius;
     font-size: $typographic-base-font-size;
     font-weight: normal;
@@ -32,11 +32,9 @@
 
     &:hover,
     &:focus {
-      color: $color-primary;
+      // color: $color-primary;
     }
-
   }
-
 }
 
 @include breakpoint-md {
@@ -54,9 +52,7 @@
       max-width: auto;
       margin: 0;
       top: 30px;
-      left: 30px
+      left: 30px;
     }
-
   }
-
 }
