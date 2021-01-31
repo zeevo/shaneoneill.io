@@ -32,7 +32,7 @@ export default {
       cyber: {
         text: '#00ff2b',
         background: '#000',
-        primary: '#FF00FF',
+        primary: '#ff0000',
       },
     },
   },

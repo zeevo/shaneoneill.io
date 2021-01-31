@@ -1,5 +1,7 @@
 import React from 'react';
+import { Flex } from 'theme-ui';
 import { getContactHref, getIcon } from '../../utils';
+import ColorModeToggle from '../ColorModeToggle';
 import Icon from '../Icon';
 import styles from './Footer.module.scss';
 
@@ -21,6 +23,9 @@ const Footer = ({ contacts }) => (
         ),
       )}
     </ul>
+    <Flex sx={{ justifyContent: 'center' }}>
+      <ColorModeToggle />
+    </Flex>
   </div>
 );
 

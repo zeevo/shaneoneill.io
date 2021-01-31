@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { jsx } from 'theme-ui';
 import React from 'react';
 import { getContactHref, getIcon } from '../../../utils';
 import ColorModeToggle from '../../ColorModeToggle';
@@ -9,7 +11,14 @@ const Contacts = ({ contacts }) => (
     <ul className={styles['contacts__list']}>
       {Object.keys(contacts).map((name) =>
         !contacts[name] ? null : (
-          <li className={styles['contacts__list-item']} key={name}>
+          <li
+            className={styles['contacts__list-item']}
+            key={name}
+            sx={{
+              border: '1px solid black',
+              borderColor: 'text',
+            }}
+          >
             <a
               className={styles['contacts__list-item-link']}
               href={getContactHref(name, contacts[name])}

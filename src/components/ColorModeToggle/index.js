@@ -15,7 +15,7 @@ function ColorModeToggle() {
         const nextModeIndex = modeChoices.indexOf(colorMode) + 1;
         setColorMode(modeChoices[nextModeIndex % modeChoices.length]);
       }}
-      sx={{ cursor: 'pointer' }}
+      sx={{ cursor: 'pointer', marginLeft: '-7px' }}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
