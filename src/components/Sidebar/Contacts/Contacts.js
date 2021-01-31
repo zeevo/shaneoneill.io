@@ -1,5 +1,6 @@
 import React from 'react';
 import { getContactHref, getIcon } from '../../../utils';
+import ColorModeToggle from '../../ColorModeToggle';
 import Icon from '../../Icon';
 import styles from './Contacts.module.scss';
 
@@ -21,6 +22,7 @@ const Contacts = ({ contacts }) => (
         ),
       )}
     </ul>
+    <ColorModeToggle />
   </div>
 );
 

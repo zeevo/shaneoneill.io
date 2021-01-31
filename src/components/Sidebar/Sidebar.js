@@ -1,12 +1,11 @@
 import React from 'react';
 import Author from './Author';
 import Contacts from './Contacts';
-import Copyright from './Copyright';
 import styles from './Sidebar.module.scss';
 import { useSiteMetadata } from '../../hooks';
 
 const Sidebar = ({ isIndex }) => {
-  const { author, copyright } = useSiteMetadata();
+  const { author } = useSiteMetadata();
 
   return (
     <div className={styles.sidebar}>

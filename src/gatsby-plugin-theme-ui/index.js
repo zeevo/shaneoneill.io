@@ -7,7 +7,7 @@ export default {
     heading: 'inherit',
     monospace: 'Menlo, monospace',
   },
-  fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 96],
+  fontSizes: [14, 16, 20, 24, 32, 48, 64, 96],
   fontWeights: {
     body: 400,
     heading: 700,
@@ -19,15 +19,15 @@ export default {
   },
   colors: {
     text: '#000',
-    background: '#EEEEEE',
-    primary: '#07c',
-    secondary: '#30c',
+    background: '#fff',
+    primary: '#609',
+    secondary: '#306',
     muted: '#f6f6f6',
     modes: {
       dark: {
         text: '#fff',
         background: '#000',
-        primary: '#0cf',
+        primary: '#609',
       },
       cyber: {
         text: '#00ff2b',
@@ -36,9 +36,18 @@ export default {
       },
     },
   },
-  style: {
+  styles: {
     root: {
       fontWeight: '400',
+      a: {
+        color: 'text',
+        '&:hover': {
+          color: 'primary',
+        },
+        textDecorationColor: 'var(--theme-ui-colors-primary)',
+        textDecorationThickness: '.125em',
+        textUnderlineOffset: '1.5px',
+      },
     },
   },
 };

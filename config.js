@@ -62,12 +62,12 @@ module.exports = {
       href: 'https://github.com/zeevosec/react-fhirclient',
     },
     {
-      label: 'Neuromancer General Purpose Discord Bot',
+      label: 'Neuromancer Discord Bot',
       href:
         'https://discordapp.com/oauth2/authorize?client_id=393278638809808896&scope=bot&permissions=37219392',
     },
     {
-      label: 'Gatsby Wordpress Starter Blog',
+      label: 'Gatsby Wordpress Starter',
       href: 'https://github.com/zeevosec/gatsby-starter-wordpress-blog',
     },
     {

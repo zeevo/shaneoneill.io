@@ -1,6 +1,5 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui';
-import { graphql } from 'gatsby';
+import { jsx, useThemeUI } from 'theme-ui';
 import { getContactHref } from '../utils/index';
 import Layout from '../components/Layout';
 import Sidebar from '../components/Sidebar';
@@ -9,13 +8,14 @@ import Footer from '../components/Footer';
 import { useSiteMetadata } from '../hooks';
 
 const IndexTemplate = () => {
+  const { theme } = useThemeUI();
   const { title: siteTitle, subtitle: siteSubtitle, projects, author, blog } = useSiteMetadata();
 
   return (
     <Layout title={siteTitle} description={siteSubtitle}>
       <Sidebar isIndex />
       <Page>
-        <h2 style={{ marginTop: 0 }}>I build things with computer code.</h2>
+        <h2 sx={{ marginTop: 0, color: 'text' }}>I build things with computer code.</h2>
         <p>Some things I have made are...</p>
         <ul
           sx={{
@@ -25,17 +25,27 @@ const IndexTemplate = () => {
           }}
         >
           {projects.map((project) => (
-            <li sx={{}}>
+            <li>
               <a
                 href={project.href}
                 sx={{
-                  border: '1px solid #e6e6e6',
-                  borderRadius: '1.25rem',
+                  border: `2px solid ${theme.colors.text}`,
                   paddingLeft: '1rem',
                   height: '2.1875rem',
                   lineHeight: '2.1875rem',
+                  '@media screen and (max-width: 685px)': {
+                    width: '100%',
+                  },
                   width: '75%',
                   display: 'inline-block',
+                  textDecoration: 'none',
+                  fontWeight: 'bold',
+                  color: 'text',
+                  '&:hover': {
+                    backgroundColor: 'primary',
+                    color: 'muted',
+                  },
+                  cursor: 'pointer',
                 }}
               >
                 {project.label}
