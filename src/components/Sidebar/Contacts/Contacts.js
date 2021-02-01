@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
-import React from 'react';
 import { getContactHref, getIcon } from '../../../utils';
 import ColorModeToggle from '../../ColorModeToggle';
 import Icon from '../../Icon';

@@ -24,24 +24,23 @@ module.exports = {
   blog: [
     {
       label: 'Introducing React FHIR Client',
-      href: 'https://www.shaneoneill.io/2020/12/react-fhirclient',
+      href: 'https://www.zeevo.io/2020/12/react-fhirclient',
     },
     {
       label: 'How to Use Wordpress to Power Your Gatsby Site',
-      href: 'https://www.shaneoneill.io/2020/07/17/how-to-use-wordpress-to-power-your-gatsby-site/',
+      href: 'https://www.zeevo.io/2020/07/17/how-to-use-wordpress-to-power-your-gatsby-site/',
     },
     {
       label: 'Deploying a Gatsby website to AWS S3 with HTTPS',
-      href: 'https://www.shaneoneill.io/2019/12/20/deploying-a-gatsby-site-to-aws-with-https/',
+      href: 'https://www.zeevo.io/2019/12/20/deploying-a-gatsby-site-to-aws-with-https/',
     },
     {
       label: 'Python Entry Points',
-      href: 'https://www.shaneoneill.io/2019/07/03/python-entry-points/',
+      href: 'https://www.zeevo.io/2019/07/03/python-entry-points/',
     },
     {
       label: 'Effective Python API testing using Django and Patch',
-      href:
-        'https://www.shaneoneill.io/2018/12/17/effective-python-api-testing-using-django-and-patch/',
+      href: 'https://www.zeevo.io/2018/12/17/effective-python-api-testing-using-django-and-patch/',
     },
   ],
   projects: [

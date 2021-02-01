@@ -20,7 +20,7 @@
     "react/destructuring-assignment": "off",
     "react/jsx-props-no-spreading": "off",
     "arrow-parens": "off",
-    "dot-notation": "warn",
+    "dot-notation": "off",
     "no-unused-vars": "warn",
     "global-require": "warn",
     "import/prefer-default-export": "off"
