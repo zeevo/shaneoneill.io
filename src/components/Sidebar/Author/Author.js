@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
+import React from 'react';
 import { withPrefix, Link } from 'gatsby';
 import styles from './Author.module.scss';
 
@@ -29,7 +30,17 @@ const Author = ({ author, isIndex }) => (
           </Link>
         </h2>
       )}
-      <h6 className={styles['author__subtitle']}>{author.bio}</h6>
+      <h6 className={styles['author__subtitle']}>
+        {author.bio
+          .split('.')
+          .filter((ele) => ele)
+          .map((ele) => (
+            <>
+              <span>{ele}.</span>
+              <br />
+            </>
+          ))}
+      </h6>
     </div>
   </div>
 );
