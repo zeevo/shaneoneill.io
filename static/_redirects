@@ -1,5 +1,6 @@
 # Redirects from what the browser requests to what we serve
 /                  /
+/index.html        /index.html
 /404               /404
 /404.html          /404.html
 /*                 https://zeevo.io/:splat
