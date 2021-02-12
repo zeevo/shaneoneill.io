@@ -49,7 +49,7 @@ module.exports = {
       href: 'https://github.com/onc-healthit/mobilizing-million-hearts',
     },
     {
-      label: 'zeevo.io',
+      label: 'Zeevo.io',
       href: 'https://zeevo.io/',
     },
     {
@@ -61,7 +61,7 @@ module.exports = {
       href: 'https://github.com/zeevosec/react-fhirclient',
     },
     {
-      label: 'Neuromancer Discord Bot',
+      label: 'Neuromancer',
       href:
         'https://discordapp.com/oauth2/authorize?client_id=393278638809808896&scope=bot&permissions=37219392',
     },
