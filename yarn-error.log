@@ -45,7 +45,7 @@ npm manifest:
       "prettier": "prettier --check './*.js' 'src/**/*.js'",
       "upgrade-packages": "npx -p npm-check-updates ncu -u"
     },
-    "repository": "https://github.com/zeevosec/shaneoneill.io",
+    "repository": "https://github.com/zeevo/shaneoneill.io",
     "author": "Alexander Shelepenok <alxshelepenok@gmail.com>",
     "license": "MIT",
     "keywords": [

@@ -58,7 +58,7 @@ module.exports = {
     },
     {
       label: 'react-fhirclient',
-      href: 'https://github.com/zeevosec/react-fhirclient',
+      href: 'https://github.com/zeevo/react-fhirclient',
     },
     {
       label: 'Neuromancer',
@@ -67,11 +67,11 @@ module.exports = {
     },
     {
       label: 'Gatsby Wordpress Starter',
-      href: 'https://github.com/zeevosec/gatsby-starter-wordpress-blog',
+      href: 'https://github.com/zeevo/gatsby-starter-wordpress-blog',
     },
     {
       label: 'Gatsby Starter Vega',
-      href: 'https://github.com/zeevosec/gatsby-starter-vega',
+      href: 'https://github.com/zeevo/gatsby-starter-vega',
     },
   ],
 };
