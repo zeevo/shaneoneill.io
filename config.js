@@ -12,7 +12,7 @@ module.exports = {
     contacts: {
       email: 'oneill.shane.h@gmail.com',
       twitter: 'zeevosec',
-      github: 'zeevosec',
+      github: 'zeevo',
       rss: 'https://zeevo.io/rss.xml',
       linkedin: 'shanehoneill',
       instagram: 'zeevosec',
