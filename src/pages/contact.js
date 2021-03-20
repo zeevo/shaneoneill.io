@@ -22,7 +22,6 @@ const Contact = () => {
           netlify-honeypot="bot-field"
           data-netlify="true"
           name="contact"
-          action="#"
         >
           <Label htmlFor="name">Name</Label>
           <Input name="name" mb={3} />
