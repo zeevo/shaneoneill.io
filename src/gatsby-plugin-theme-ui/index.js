@@ -36,6 +36,28 @@ export default {
       },
     },
   },
+  forms: {
+    label: {
+      fontSize: 1,
+      fontWeight: 'bold',
+    },
+    input: {
+      borderColor: 'gray',
+      '&:focus': {
+        borderColor: 'primary',
+        boxShadow: (t) => `0 0 0 2px ${t.colors.primary}`,
+        outline: 'none',
+      },
+    },
+    textarea: {
+      borderColor: 'gray',
+      '&:focus': {
+        borderColor: 'primary',
+        boxShadow: (t) => `0 0 0 2px ${t.colors.primary}`,
+        outline: 'none',
+      },
+    },
+  },
   styles: {
     root: {
       fontWeight: '400',

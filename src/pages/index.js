@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx, useThemeUI } from 'theme-ui';
+import { Link } from 'gatsby';
 import { getContactHref } from '../utils/index';
 import Layout from '../components/Layout';
 import Sidebar from '../components/Sidebar';
@@ -82,6 +83,9 @@ const IndexTemplate = () => {
         </ul>
         <h2 style={{ fontStyle: 'italic' }}>Ok so how do I interact with you?</h2>
         <ul>
+          <li>
+            <Link to="contact">Contact me</Link>.
+          </li>
           <li>
             Tweet at me{' '}
             <a href={getContactHref('twitter', author.contacts.twitter)}>
