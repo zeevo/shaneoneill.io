@@ -3,4 +3,8 @@
 /index.html        /index.html
 /404               /404
 /404.html          /404.html
-/*                 https://zeevo.io/:splat
+/2016/*             https://zeevo.io/2016/:splat
+/2017/*             https://zeevo.io/2017/:splat
+/2018/*             https://zeevo.io/2018/:splat
+/2019/*             https://zeevo.io/2019/:splat
+/2020/*             https://zeevo.io/2020/:splat
