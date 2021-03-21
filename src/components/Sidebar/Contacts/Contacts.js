@@ -1,4 +1,5 @@
 /** @jsx jsx */
+import { Link } from 'gatsby';
 import { jsx } from 'theme-ui';
 import { getContactHref, getIcon } from '../../../utils';
 import ColorModeToggle from '../../ColorModeToggle';
@@ -18,14 +19,20 @@ const Contacts = ({ contacts }) => (
               borderColor: 'text',
             }}
           >
-            <a
-              className={styles['contacts__list-item-link']}
-              href={getContactHref(name, contacts[name])}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <Icon name={name} icon={getIcon(name)} />
-            </a>
+            {name === 'email' ? (
+              <Link to="/contact">
+                <Icon name={name} icon={getIcon(name)} />
+              </Link>
+            ) : (
+              <a
+                className={styles['contacts__list-item-link']}
+                href={getContactHref(name, contacts[name])}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <Icon name={name} icon={getIcon(name)} />
+              </a>
+            )}
           </li>
         ),
       )}

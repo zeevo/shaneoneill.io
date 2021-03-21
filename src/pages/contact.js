@@ -29,8 +29,8 @@ const IndexTemplate = () => {
           <Input name="name" mb={3} />
           <Label htmlFor="email">Email</Label>
           <Input type="email" name="email" mb={3} />
-          <Label htmlFor="comment">Comment</Label>
-          <Textarea name="comment" rows="6" mb={3} />
+          <Label htmlFor="message">Message</Label>
+          <Textarea name="message" rows="6" mb={3} />
           <Button type="submit">Submit</Button>
         </Box>
       </Page>
