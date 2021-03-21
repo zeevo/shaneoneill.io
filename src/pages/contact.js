@@ -18,7 +18,7 @@ const Contact = () => {
         <h2 sx={{ marginTop: 0, color: 'text' }}>Contact Me</h2>
         <Box
           as="form"
-          method="post"
+          method="POST"
           netlify-honeypot="bot-field"
           data-netlify="true"
           name="contact"
