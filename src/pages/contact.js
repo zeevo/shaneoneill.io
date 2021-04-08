@@ -16,6 +16,10 @@ const IndexTemplate = () => {
       <Sidebar isIndex />
       <Page>
         <h2 sx={{ marginTop: 0, color: 'text' }}>Contact Me</h2>
+        <p>
+          I usually respond within{' '}
+          <span sx={{ color: 'primary', fontWeight: 'bold' }}>24 hours</span>
+        </p>
         <Box
           as="form"
           method="post"
@@ -26,11 +30,16 @@ const IndexTemplate = () => {
         >
           <input type="hidden" name="form-name" value="contact" />
           <Label htmlFor="name">Name</Label>
-          <Input name="name" mb={3} />
+          <Input name="name" mb={3} placeholder="John Smith" />
           <Label htmlFor="email">Email</Label>
-          <Input type="email" name="email" mb={3} />
+          <Input type="email" name="email" mb={3} placeholder="your.email@gmail.com" />
           <Label htmlFor="message">Message</Label>
-          <Textarea name="message" rows="6" mb={3} />
+          <Textarea
+            name="message"
+            rows="6"
+            mb={3}
+            placeholder="I need a website for my company with email notifications and pictures -- Let's build this together for cheap..."
+          />
           <Button type="submit">Submit</Button>
         </Box>
       </Page>

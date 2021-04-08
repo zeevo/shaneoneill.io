@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx, useThemeUI } from 'theme-ui';
-import React from 'react';
 import Author from './Author';
 import Contacts from './Contacts';
 import styles from './Sidebar.module.scss';
