@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, useThemeUI } from 'theme-ui';
+import { jsx, useThemeUI, Button } from 'theme-ui';
 import { Link } from 'gatsby';
 import { getContactHref } from '../utils/index';
 import Layout from '../components/Layout';
@@ -81,6 +81,38 @@ const IndexTemplate = () => {
             </li>
           ))}
         </ul>
+        <h2>
+          I build website for businesses and individuals with fast turnaround for cheap.{' '}
+          <Link
+            sx={{
+              boxSizing: 'border-box',
+              margin: 0,
+              minWidth: 0,
+              appearance: 'none',
+              display: 'inline-block',
+              textAlign: 'center',
+              lineHeight: 'inherit',
+              textDecoration: 'none',
+              paddingLeft: '16px',
+              paddingRight: '16px',
+              paddingTop: '8px',
+              paddingBottom: '8px',
+              borderRadius: '4px',
+              border: '1px solid',
+              cursor: 'pointer',
+              borderColor: 'background',
+              color: 'background',
+              backgroundColor: 'primary',
+              '&:hover': {
+                color: 'background',
+                backgroundColor: 'secondary',
+              },
+            }}
+            href="contact"
+          >
+            Contact me
+          </Link>
+        </h2>
         <h2 style={{ fontStyle: 'italic' }}>Ok so how do I interact with you?</h2>
         <ul>
           <li>

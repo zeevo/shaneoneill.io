@@ -17,6 +17,13 @@ const IndexTemplate = () => {
       <Page>
         <h2 sx={{ marginTop: 0, color: 'text' }}>Contact Me</h2>
         <p>
+          Do you need a{' '}
+          <span sx={{ color: 'primary', fontWeight: 'bold' }}>
+            Website? Discord Bot? Content Management System? General Scripting?
+          </span>{' '}
+          I can build it for you.
+        </p>
+        <p>
           I usually respond within{' '}
           <span sx={{ color: 'primary', fontWeight: 'bold' }}>24 hours</span>
         </p>
@@ -40,7 +47,22 @@ const IndexTemplate = () => {
             mb={3}
             placeholder="I need a website for my company with email notifications and pictures -- Let's build this together for cheap..."
           />
-          <Button type="submit">Submit</Button>
+          <Button
+            type="submit"
+            sx={{
+              width: '100%',
+              cursor: 'pointer',
+              borderColor: 'background',
+              color: 'background',
+              backgroundColor: 'primary',
+              '&:hover': {
+                color: 'background',
+                backgroundColor: 'secondary',
+              },
+            }}
+          >
+            Submit
+          </Button>
         </Box>
       </Page>
     </Layout>
