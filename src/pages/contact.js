@@ -4,9 +4,10 @@ import Layout from '../components/Layout';
 import Sidebar from '../components/Sidebar';
 import Page from '../components/Page';
 import { useSiteMetadata } from '../hooks';
+import Footer from '../components/Footer';
 
 const IndexTemplate = () => {
-  const { title: siteTitle } = useSiteMetadata();
+  const { title: siteTitle, author } = useSiteMetadata();
 
   const pageDescription =
     'Contact me for company websites, blogs, portfolios, or other website ideas you might have and I will help you bring your vision into reality. Full scope.';
@@ -25,7 +26,7 @@ const IndexTemplate = () => {
         </p>
         <p>
           I usually respond within{' '}
-          <span sx={{ color: 'primary', fontWeight: 'bold' }}>24 hours</span>
+          <span sx={{ color: 'primary', fontWeight: 'bold' }}>24 hours.</span>
         </p>
         <Box
           as="form"
@@ -64,6 +65,14 @@ const IndexTemplate = () => {
             Submit
           </Button>
         </Box>
+        <div
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
+          <Footer contacts={author.contacts} />
+        </div>
       </Page>
     </Layout>
   );
