@@ -6,10 +6,10 @@ import Layout from '../components/Layout';
 import Sidebar from '../components/Sidebar';
 import Page from '../components/Page';
 import Footer from '../components/Footer';
+import ProjectLink from '../components/ProjectLink';
 import { useSiteMetadata } from '../hooks';
 
 const IndexTemplate = () => {
-  const { theme } = useThemeUI();
   const { title: siteTitle, subtitle: siteSubtitle, projects, author, blog } = useSiteMetadata();
 
   return (
@@ -26,31 +26,8 @@ const IndexTemplate = () => {
           }}
         >
           {projects.map((project) => (
-            <li>
-              <a
-                href={project.href}
-                sx={{
-                  border: `2px solid ${theme.colors.text}`,
-                  paddingLeft: '1rem',
-                  height: '2.1875rem',
-                  lineHeight: '2.1875rem',
-                  '@media screen and (max-width: 685px)': {
-                    width: '100%',
-                  },
-                  width: '75%',
-                  display: 'inline-block',
-                  textDecoration: 'none',
-                  fontWeight: 'bold',
-                  color: 'text',
-                  '&:hover': {
-                    backgroundColor: 'primary',
-                    color: 'muted',
-                  },
-                  cursor: 'pointer',
-                }}
-              >
-                {project.label}
-              </a>
+            <li key={project.href}>
+              <ProjectLink project={project} />
             </li>
           ))}
         </ul>

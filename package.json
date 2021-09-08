@@ -28,6 +28,9 @@
     "react"
   ],
   "dependencies": {
+    "@headlessui/react": "^1.4.1",
+    "@popperjs/core": "^2.10.1",
+    "autoprefixer": "^9.0.0",
     "bluebird": "^3.7.2",
     "classnames": "^2.2.6",
     "codecov": "^3.8.1",
@@ -41,6 +44,7 @@
     "gatsby-plugin-manifest": "^2.11.0",
     "gatsby-plugin-offline": "^3.9.0",
     "gatsby-plugin-optimize-svgs": "^1.0.5",
+    "gatsby-plugin-postcss": "^4.13.0",
     "gatsby-plugin-react-helmet": "^3.9.0",
     "gatsby-plugin-sass": "^3.1.0",
     "gatsby-plugin-sharp": "^2.13.1",
@@ -61,10 +65,13 @@
     "lodash": "^4.17.20",
     "node-sass": "^5.0.0",
     "normalize-scss": "^7.0.1",
+    "postcss": "^8.3.6",
     "prismjs": "^1.23.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
+    "react-popper": "^2.2.5",
+    "tailwindcss": "^2.2.11",
     "theme-ui": "^0.3.5"
   },
   "devDependencies": {
@@ -74,7 +81,6 @@
     "@babel/plugin-transform-flow-strip-types": "^7.12.10",
     "@babel/preset-env": "7.12.11",
     "@babel/preset-react": "7.12.10",
-    "autoprefixer": "9.8.6",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
     "babel-jest": "26.6.3",

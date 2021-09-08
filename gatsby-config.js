@@ -166,5 +166,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-optimize-svgs',
+    'gatsby-plugin-postcss',
   ],
 };

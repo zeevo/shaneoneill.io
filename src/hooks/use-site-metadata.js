@@ -29,6 +29,7 @@ const useSiteMetadata = () => {
             projects {
               label
               href
+              description
             }
             blog {
               label
