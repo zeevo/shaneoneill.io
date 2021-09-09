@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, useThemeUI } from 'theme-ui';
 import { Popover, Transition } from '@headlessui/react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { usePopper } from 'react-popper';
 
 export default function ProjectLink({ project }) {
@@ -35,32 +35,31 @@ export default function ProjectLink({ project }) {
           <Popover.Button
             ref={setReferenceElement}
             sx={{
-              border: `2px solid ${theme.colors.text}`,
-              paddingLeft: '1rem',
-              height: '2.1875rem',
-              lineHeight: '2.1875rem',
-              '@media screen and (max-width: 685px)': {
-                width: '100%',
-              },
               width: '75%',
-              display: 'inline-block',
-              textDecoration: 'none',
-              fontWeight: 'bold',
-              color: 'text',
-              backgroundColor: 'background',
-              '&:hover': {
-                backgroundColor: 'primary',
-                color: 'muted',
-                borderColor: 'text',
-              },
-              '&:focus-visible': {
-                outline: 0,
-              },
-              cursor: 'pointer',
             }}
-            href={project.href}
           >
-            {project.label}
+            <a
+              href={project.href}
+              sx={{
+                border: `2px solid ${theme.colors.text}`,
+                paddingLeft: '1rem',
+                height: '2.1875rem',
+                lineHeight: '2.1875rem',
+                width: '100%',
+                display: 'inline-block',
+                textDecoration: 'none',
+                fontWeight: 'bold',
+                color: 'text',
+                '&:hover': {
+                  borderColor: 'primary',
+                  color: 'primary',
+                },
+                cursor: 'pointer',
+                textAlign: 'left',
+              }}
+            >
+              {project.label}
+            </a>
           </Popover.Button>
 
           <Transition
