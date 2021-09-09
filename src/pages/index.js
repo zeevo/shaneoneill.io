@@ -59,7 +59,8 @@ const IndexTemplate = () => {
           ))}
         </ul>
         <h2>
-          I build websites for businesses and individuals with fast turnaround for cheap.{' '}
+          I build websites and webapps for businesses and individuals with fast turnaround for
+          cheap.{' '}
           <Link
             sx={{
               boxSizing: 'border-box',
